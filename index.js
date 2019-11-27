@@ -24,7 +24,7 @@ const getDataByDate = async localDate => {
       attributes: ['utcTime', 'localTime'],
       raw: true,
     });
-    console.log(data);
+    console.log(data, typeof data);
   } catch (error) {
     console.log(error);
   }
@@ -33,6 +33,7 @@ const getDataByDate = async localDate => {
 const run = async () => {
   await getDataByDate(
     moment('2019-11-26')
+      .startOf('day')
       .local()
       .format(),
   );
